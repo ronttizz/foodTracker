@@ -45,7 +45,7 @@ h2 {
 }
 
 form {
-  width: 30vw;
+  width: 250px;
   display: flex;
   flex-direction: column;
 }
@@ -55,6 +55,19 @@ form div {
   justify-content: space-between;
   align-items: center;
   margin: 0.25rem 0;
+}
+
+form button {
+  padding: 0.75rem;
+  width: fit-content;
+  align-self: flex-end;
+  font-family: inherit;
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  background-color: var(--darkGreen);
+  color: white;
+  border-radius: 5px;
+  border: none;
 }
 
 select {

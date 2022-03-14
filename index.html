@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Food Tracker</title>
+  </head>
+  <body>
+    <header>
+      <h1>My Nutrion</h1>
+    </header>
+    <main>
+      <section>
+        <form action="submit" id="food">
+          <h2>Add food</h2>
+          <label for="foodName">Food name:</label>
+          <select name="foodName" id="foodName">
+            <option>Please select</option>
+            <option value="pizza">Pizza</option>
+            <option value="pasta">Pasta</option>
+            <option value="burger">Burger</option>
+            <option value="soup">Soup</option>
+            <option value="salad">Salad</option>
+            <option value="peach">Peach</option>
+            <option value="apple">Apple</option>
+            <option value="cider">Cider</option>
+          </select>
+          <div>
+            <label for="carbs">Carbs:</label>
+            <input type="number" name="carbs" id="carbs" placeholder="0g" />
+          </div>
+          <div>
+            <label for="protein">Protein:</label>
+            <input type="number" name="protein" id="protein" placeholder="0g" />
+          </div>
+          <div>
+            <label for="fat">Fat:</label>
+            <input type="number" name="fat" id="fat" placeholder="0g" />
+          </div>
+        </form>
+      </section>
+      <section>
+        <h2>Stats</h2>
+        <p>CHARTS PLACEHOLDER</p>
+      </section>
+      <section>
+        <h2>Log</h2>
+        <div id="total">
+          <p>Total calories logged: <span id="totalCalories">0</span></p>
+        </div>
+        <div id="foods"></div>
+      </section>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>

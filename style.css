@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --font: "Roboto", sans-serif;
+  --darkGreen: #3d550c;
+  --lightGreen: #81b622;
+  --bg-color: #ecf87f;
+  --green: #59981a;
+  --basicFontSize: 1rem;
+  --bigFontSize: 3rem;
+  --medFontSize: 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  font-size: var(--basicFontSize);
+}
+
+header {
+  background-color: var(--lightGreen);
+  border-bottom: 3px solid var(--darkGreen);
+  padding: 2rem 1rem;
+}
+
+h1 {
+  font-size: var(--bigFontSize);
+}
+
+body {
+  background-color: var(--green);
+}
+
+section {
+  padding: 1rem;
+}
+
+h2 {
+  font-size: var(--medFontSize);
+}
+
+form {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.25rem 0;
+}
+
+select {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  height: 2.5rem;
+  max-width: 5rem;
+  text-align: right;
+}
+
+input::placeholder {
+  text-align: right;
+}
+
+#total {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1rem;
+  width: fit-content;
+  margin: 0.5rem 0;
+}

@@ -18,14 +18,14 @@
           <label for="foodName">Food name:</label>
           <select name="foodName" id="foodName">
             <option>Please select</option>
-            <option value="pizza">Pizza</option>
-            <option value="pasta">Pasta</option>
-            <option value="burger">Burger</option>
-            <option value="soup">Soup</option>
-            <option value="salad">Salad</option>
-            <option value="peach">Peach</option>
-            <option value="apple">Apple</option>
-            <option value="cider">Cider</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Pasta">Pasta</option>
+            <option value="Burger">Burger</option>
+            <option value="Soup">Soup</option>
+            <option value="Salad">Salad</option>
+            <option value="Peach">Peach</option>
+            <option value="Apple">Apple</option>
+            <option value="Cider">Cider</option>
           </select>
           <div>
             <label for="carbs">Carbs:</label>
@@ -47,12 +47,34 @@
         <h2>Stats</h2>
         <p>CHARTS PLACEHOLDER</p>
       </section>
-      <section>
+      <section id="logSection">
         <h2>Log</h2>
         <div id="total">
           <p>Total calories logged: <span id="totalCalories">0</span></p>
         </div>
-        <div id="foods"></div>
+        <div id="foodsList">
+          <div class="foodListItem">
+            <div>
+              <h3>Pizza</h2>
+            </div>
+            <div>
+              <p class="small">Calories: <span id="calories">120</span>kcal</p>
+            </div>
+            <div class="macro">
+                <div>
+                <p>Carbs: <span class="foodCarbs">5</span>g</p>
+                </div>
+                <div>
+                <p>Protein: <span class="foodProtein">10</span>g</p>
+                </div>
+                <div>
+                <p>Fat: <span class="foodFat">15</span>g</p>
+                </div>
+            </div>
+            
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   </body>

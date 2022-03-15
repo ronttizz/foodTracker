@@ -127,6 +127,7 @@ input::placeholder {
 }
 
 .macro {
-  display: flex;
+  display: grid;
   margin: 0.25rem;
+  justify-content: center;
 }

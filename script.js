@@ -21,7 +21,7 @@ const addFood = (e) => {
   const fatValue = fat.value;
   const calories = carbsValue * 4 + proteinValue * 4 + fatValue * 9;
 
-  if (foodNameString !== "Select select" && carbsValue && proteinValue && fatValue) {
+  if (foodNameString !== "Please select" && carbsValue && proteinValue && fatValue) {
     const body = {
       fields: {
         foodName: {
@@ -56,6 +56,8 @@ const clearAPI = () => {
       FoodAPI.delete(`toni112/${data.documents[index].name.slice(67)}`);
     }
   });
+  foodList.innerHTML = "";
+  totalCalories.textContent = 0;
 };
 
 const updateFoodsList = () => {

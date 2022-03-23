@@ -1,4 +1,6 @@
 import { FetchWrapper } from "./fetch-wrapper.js";
+import snackbar from "snackbar";
+import "snackbar/dist/snackbar.min.css";
 
 const foodDetails = document.querySelector("#food");
 let totalCalories = document.querySelector("#totalCalories");
@@ -42,6 +44,7 @@ const addFood = (e) => {
       },
     };
     addFoodToList(foodNameString, carbsValue, proteinValue, fatValue, calories);
+    snackbar.show(`${foodNameString} added to database.`);
     totalCalories.textContent = Number(totalCalories.textContent) + Number(calories);
     FoodAPI.post("toni112", body);
     carbs.value = "";
@@ -56,6 +59,7 @@ const clearAPI = () => {
       FoodAPI.delete(`toni112/${data.documents[index].name.slice(67)}`);
     }
   });
+  snackbar.show("Data base cleared!");
   foodList.innerHTML = "";
   totalCalories.textContent = 0;
 };

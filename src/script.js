@@ -1,6 +1,7 @@
 import { FetchWrapper } from "./fetch-wrapper.js";
 import snackbar from "snackbar";
 import "snackbar/dist/snackbar.min.css";
+import Chart from "chart.js/auto";
 
 const foodDetails = document.querySelector("#food");
 let totalCalories = document.querySelector("#totalCalories");

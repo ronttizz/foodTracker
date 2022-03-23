@@ -17,6 +17,7 @@
     "caniuse-api": "^3.0.0",
     "caniuse-lite": "^1.0.30001319",
     "chalk": "^4.1.2",
+    "chart.js": "^3.7.1",
     "chrome-trace-event": "^1.0.3",
     "clone": "^2.1.2",
     "color-convert": "^2.0.1",

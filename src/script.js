@@ -1,5 +1,4 @@
 import { FetchWrapper } from "./fetch-wrapper.js";
-import snackbar from "snackbar.scss";
 
 const foodDetails = document.querySelector("#food");
 let totalCalories = document.querySelector("#totalCalories");

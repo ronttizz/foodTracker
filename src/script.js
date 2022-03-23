@@ -13,8 +13,11 @@ const fat = document.querySelector("#fat");
 const FoodAPI = new FetchWrapper(
   "https://firestore.googleapis.com/v1/projects/programmingjs-90a13/databases/(default)/documents/"
 );
-const chartCanvas = document.querySelector("#chart");
 const clear = document.querySelector("#clear");
+const chartCanvas = document.querySelector("#chart");
+let chart;
+const macroArray = [0, 0, 0];
+const labels = ["Carbs", "Protein", "Fats"];
 
 const addFood = (e) => {
   e.preventDefault();
@@ -45,12 +48,15 @@ const addFood = (e) => {
       },
     };
     addFoodToList(foodNameString, carbsValue, proteinValue, fatValue, calories);
+    updateChart(carbsValue, proteinValue, fatValue);
     snackbar.show(`${foodNameString} added to database.`);
     totalCalories.textContent = Number(totalCalories.textContent) + Number(calories);
     FoodAPI.post("toni112", body);
     carbs.value = "";
     protein.value = "";
     fat.value = "";
+  } else {
+    snackbar.show("Please check your input");
   }
 };
 
@@ -60,9 +66,13 @@ const clearAPI = () => {
       FoodAPI.delete(`toni112/${data.documents[index].name.slice(67)}`);
     }
   });
-  snackbar.show("Data base cleared!");
+  snackbar.show("Database cleared!");
   foodList.innerHTML = "";
   totalCalories.textContent = 0;
+  macroArray[0] = 0;
+  macroArray[1] = 0;
+  macroArray[2] = 0;
+  chart.destroy();
 };
 
 const updateFoodsList = () => {
@@ -74,32 +84,39 @@ const updateFoodsList = () => {
       const protein = data.documents[i].fields.protein.integerValue;
       const calories = data.documents[i].fields.calories.integerValue;
       addFoodToList(name, carbs, protein, fats, calories);
+      updateChart(carbs, protein, fats);
       totalCalories.textContent = Number(totalCalories.textContent) + Number(calories);
     }
   });
 };
 
-const labels = ["January", "February", "March", "April", "May", "June"];
+const updateChart = (carbs, proteins, fats) => {
+  macroArray[0] = macroArray[0] + Number(carbs);
+  macroArray[1] = macroArray[1] + Number(proteins);
+  macroArray[2] = macroArray[2] + Number(fats);
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "grams",
+        backgroundColor: "rgb(61, 85, 12)",
+        borderColor: "rgb(255, 99, 132)",
+        data: macroArray,
+      },
+    ],
+  };
 
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
-    },
-  ],
+  const config = {
+    type: "bar",
+    data: data,
+    options: {},
+  };
+  if (chart) {
+    chart.destroy();
+  }
+  chart = new Chart(chartCanvas, config);
+  return chart;
 };
-
-const config = {
-  type: "bar",
-  data: data,
-  options: {},
-};
-
-const myChart = new Chart(chartCanvas, config);
 
 const addFoodToList = (foodNameString, carbsValue, proteinValue, fatValue, calories) => {
   let element = `<div class="foodListItem">

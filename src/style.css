@@ -2,7 +2,7 @@
 
 :root {
   --font: "Roboto", sans-serif;
-  --darkGreen: #3d550c;
+  --darkGreen: rgb(61, 85, 12);
   --lightGreen: #81b622;
   --bg-color: #ecf87f;
   --green: #59981a;
